@@ -7,4 +7,4 @@ start firefox.exe www.youtube.com/watch?v=tdXTsrMjRUU&list=PLsSTkBgqx7ovOGCJZFF5
 start firefox.exe www.youtube.com/watch?v=1Kb6-IILu2k
 start firefox.exe www.youtube.com/watch?v=A3G-3hp88mo
 start firefox.exe www.kali.org/docs/wsl/win-kex/
-start firefox.exe www.clients.hostsailor.com/index.php?rp=/knowledgebase/241/VNC--Too-many-authentication-failures-error.html
+start firefox.exe https://clients.hostsailor.com/index.php?rp=/knowledgebase/241/VNC--Too-many-authentication-failures-error.html
