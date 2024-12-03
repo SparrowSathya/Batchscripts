@@ -9,7 +9,11 @@ if errorlevel 1 (
     echo FFmpeg is not installed or not in PATH.
     echo Please install FFmpeg and ensure it is added to your system PATH.
     pause
-    exit
+    𝖾𝖼𝗁𝗈 𝖳𝗈 𝖨𝗇𝗌𝗍𝖺𝗅𝗅 𝖦𝗂𝗍 𝖤𝗇𝗍𝖾𝗋
+		git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg
+cd ffmpeg
+dir
+pause
 )
 
 :menu
