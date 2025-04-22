@@ -128,7 +128,7 @@ for /d %%P in ("%localappdata%\Mozilla\Firefox\Profiles\*") do (
         echo [!] Firefox cache folder does not exist for profile %%P. Skipping cleanup... >> %logFile%
     )
 )
-echo Cleanup complete! Your system is sparkling now. :)
+
 :: Final Log Entry
 echo **************************************** >> %logFile%
 echo [+] Cleanup finished at %date% %time%    >> %logFile%
