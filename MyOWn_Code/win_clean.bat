@@ -1,4 +1,15 @@
 @echo off
+:: Check for administrator privileges
+net session >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Requesting administrator privileges...
+    powershell -Command "Start-Process cmd -ArgumentList '/c %~s0' -Verb runAs"
+    exit /b
+)
+
+:: Your batch script commands go here
+echo Running with administrator privileges...
+
 :: Batch Script to Clear Temp, Cache, and Other Junk Files
 echo Cleaning up your system... Please wait.
 echo.
@@ -8,7 +19,7 @@ echo Deleting Temp files...
 del /s /q %temp%\* >nul 2>&1
 del /s /q C:\Windows\Temp\* >nul 2>&1
 
-:: Clear DNS Cache   
+:: Clear DNS Cache
 echo Clearing DNS cache...
 ipconfig /flushdns >nul
 
@@ -28,9 +39,10 @@ rd /s /q %systemdrive%\$Recycle.Bin >nul 2>&1
 echo Disabling hibernation to delete hibernation file...
 powercfg -h off
 
-:: Clear Windows Store Cache
-echo Clearing Windows Store cache...
-wsreset.exe >nul
+:: Clear Windows Store Cache Silently
+echo Clearing Windows Store cache silently...
+start /wait wsreset.exe >nul 2>&1
+taskkill /f /im ApplicationFrameHost.exe >nul 2>&1
 
 :: Delete Logs and Crash Dumps
 echo Deleting logs and crash dumps...
