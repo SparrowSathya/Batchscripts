@@ -11,7 +11,7 @@ if %errorlevel% neq 0 (
 set logFile=%systemdrive%\ComprehensiveCleanupLog.txt
 
 :: Start Logging
-echo **************************************** >> %logFile%
+echo **************************************** >> | tee -a  %logFile%
 echo *            SYSTEM CLEANUP            * >> %logFile%
 echo **************************************** >> %logFile%
 echo Cleanup started at %date% %time%         >> %logFile%
