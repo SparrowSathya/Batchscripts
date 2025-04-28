@@ -136,8 +136,32 @@ echo ****************************************
 echo Cleanup complete! Your system is sparkling now. :)
 echo ****************************************
 echo.
+
+echo Exiting in:
+for /l %%i in (5,-1,1) do (
+    set /p="%%i... " <nul
+    timeout /t 1 /nobreak >nul
+)
+echo.
+echo.
+:: Fancy slow typing effect for "Goodbye! 👋"
+setlocal enabledelayedexpansion
+set "message=Goodbye! "
+for /l %%i in (0,1,15) do (
+    set "letter=!message:~%%i,1!"
+    if defined letter (
+        set /p="!letter!" <nul
+        timeout /t 1 >nul
+    )
+)
+echo.
+timeout /t 2 /nobreak >nul
+exit /b 0
+:: End of Script
+
+
 :: echo [!] Press any key to exit...
 :: pause >nul
-timeout /t 5 /nobreak > nul
-exit /b 0
+:: timeout /t 5 /nobreak > nul
+:: exit /b 0
 :: End of Script
