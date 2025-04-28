@@ -8,10 +8,10 @@ if %errorlevel% neq 0 (
 )
 
 :: Define Log File
-set logFile=%systemdrive%\ComprehensiveCleanupLog.txt
+set logFile=%systemdrive%\MyCleanupLog.txt
 
 :: Start Logging
-echo **************************************** >> | tee -a  %logFile%
+echo **************************************** >> %logFile%
 echo *            SYSTEM CLEANUP            * >> %logFile%
 echo **************************************** >> %logFile%
 echo Cleanup started at %date% %time%         >> %logFile%
