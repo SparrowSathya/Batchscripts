@@ -136,7 +136,8 @@ echo ****************************************
 echo Cleanup complete! Your system is sparkling now. :)
 echo ****************************************
 echo.
-echo [!] Press any key to exit...
-pause >nul
+:: echo [!] Press any key to exit...
+:: pause >nul
+timeout /t 5 /nobreak > nul
 exit /b 0
 :: End of Script
