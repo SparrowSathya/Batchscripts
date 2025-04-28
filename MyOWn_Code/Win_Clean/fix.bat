@@ -122,7 +122,7 @@ if exist "%localappdata%\Microsoft\Edge\User Data\Default\Cache" (
 )
 
 rem Clear Firefox Browser Cache
-call :LogMsg "[>] Clearing Firefox browser cache..."
+call :LogMsg "[!] Clearing Firefox browser cache..."
 for /d %%P in ("%localappdata%\Mozilla\Firefox\Profiles\*") do (
     if exist "%%P\cache2" (
         rd /s /q "%%P\cache2" >nul 2>&1 && call :LogMsg "[+] Firefox cache cleared successfully" || call :LogMsg "[!] Failed to clear Firefox cache for profile %%P"
@@ -136,10 +136,18 @@ call :LogMsg "****************************************"
 call :LogMsg "[+] Cleanup finished at %date% %time%"
 call :LogMsg "****************************************"
 
-exit /B
-
 :LogMsg
-rem %~1 removes any surrounding quotes from the parameter
+rem Validate input argument to prevent special character issues
+if "%~1"=="" (
+    echo [!] No log message provided. Skipping logging operation.
+    timeout /t 5 /nobreak > nul
+    exit /B
+)
+
+rem Log the message both to console and file
 echo %~1
 echo %~1 >> "%LOGFILE%"
+echo [>] Logging message to %LOGFILE%
+echo [>] Logging message to console 
 exit /B
+
