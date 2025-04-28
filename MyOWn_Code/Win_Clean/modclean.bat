@@ -133,5 +133,5 @@ for /d %%P in ("%localappdata%\Mozilla\Firefox\Profiles\*") do (
 echo **************************************** >> %logFile%
 echo [+] Cleanup finished at %date% %time%    >> %logFile%
 echo **************************************** >> %logFile%
-
-pause
+exit /b 0
+:: End of Script
